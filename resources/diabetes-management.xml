@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ImplementationGuide xmlns="http://hl7.org/fhir">
+    <id value="DiabetesManagement"/>
+    <url value="http://harmoniqhealth.com/cds/ImplementationGuide/DiabetesManagement"/>
+    <version value="1"/>
+    <name value="HarmonIQ Implementation Guide - Diabetes Management"/>
+    <status value="draft"/>
+    <experimental value="false"/>
+    <publisher value="HarmonIQ Health Services"/>
+    <date value="2018-02-03T13:16:43-07:00"/>
+    <description value="Establishing HarmonIQ CDS Services"/>
+    <!--<package></package>-->
+    <page>
+        <source value="harmoniq.html"/>
+        <title value="HarmonIQ Home"/>
+        <kind value="page"/>
+        <format value="html"/>
+    </page>
+</ImplementationGuide>
