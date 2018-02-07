@@ -1,0 +1,37 @@
+{
+  "resourceType": "Observation",
+  "id": "example-diabetes-management",
+  "status": "final",
+  "code": {
+    "coding": [
+      {
+        "system": "https://intranet.aumc.nl/labtestcodes",
+        "code": "20006",
+        "display": "HbA1C"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/example-diabetes-management"
+  },
+  "effectiveDateTime": "2016-04-04T14:34:00+01:00",
+  "valueQuantity": {
+    "value": 15.2,
+    "unit": "mmol/L",
+    "system": "http://snomed.info/sct",
+    "code": "258814008"
+  },
+  "interpretation": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/sid/icd-10-cm",
+        "code": "R73.09",
+        "display": "Other abnormal glucose"
+      },
+      {
+        "system": "http://hl7.org/fhir/v2/0078",
+        "code": "H"
+      }
+    ]
+  }
+}

@@ -36,9 +36,66 @@
   "canonicalBase": "http://harmoniqhealth.com/cds",
   "source": "diabetes-management.xml",
   "spreadsheets": [
-
+    "activitydefinition-profile-spreadsheet.xml",
+    "condition-profile-spreadsheet.xml",
+    "library-profile-spreadsheet.xml",
+    "observation-profile-spreadsheet.xml",
+    "plandefinition-profile-spreadsheet.xml",
+    "medicationstatement-profile-spreadsheet.xml"
   ],
   "resources": {
-
+    "StructureDefinition/diabetes-management-activitydef": {
+      "defns": "diabetes-management-activitydef-definitions.html",
+      "base": "diabetes-management-activitydef.html"
+    },
+    "StructureDefinition/diabetes-management-condition": {
+      "defns": "diabetes-management-condition-definitions.html",
+      "base": "diabetes-management-condition.html"
+    },
+    "StructureDefinition/diabetes-management-library": {
+      "defns": "diabetes-management-library-definitions.html",
+      "base": "diabetes-management-library.html"
+    },
+    "StructureDefinition/diabetes-management-medstatemnt": {
+      "defns": "diabetes-management-medstatemnt-definitions.html",
+      "base": "diabetes-management-medstatemnt.html"
+    },
+    "StructureDefinition/diabetes-management-observation": {
+      "defns": "diabetes-management-observation-definitions.html",
+      "base": "diabetes-management-observation.html"
+    },
+    "StructureDefinition/diabetes-management-plandef": {
+      "defns": "diabetes-management-plandef-definitions.html",
+      "base": "diabetes-management-plandef.html"
+    },
+    "Condition/example-diabetes-management": {
+      "source": "condition-example-diabetes-management.json",
+      "base": "Condition-example-diabetes-management.html"
+    },
+    "Library/example-diabetes-management": {
+      "source": "library-example-diabetes-management.json",
+      "base": "Library-example-diabetes-management.html"
+    },
+    "MedicationStatement/example-diabetes-management": {
+      "source": "medicationstatement-example-diabetes-management.json",
+      "base": "MedicationStatement-example-diabetes-management.html"
+    },
+    "Observation/example-diabetes-management": {
+      "source": "observation-example-diabetes-management.json",
+      "base": "Observation-example-diabetes-management.html"
+    },
+    "Patient/example-diabetes-management": {
+      "source": "patient-example-diabetes-management.json",
+      "base": "Patient-example-diabetes-management.html"
+    },
+    "PlanDefinition/example-diabetes-management": {
+      "source": "plandefinition-example-diabetes-management.json",
+      "base": "PlanDefinition-example-diabetes-management.html"
+    },
+    "ValueSet/diabetes-condition": {
+      "source": "valueset-diabetes-condition.json",
+      "base": "valueset-diabetes-condition.html",
+      "template-base": "instance-template-valueset.html"
+    }
   }
 }

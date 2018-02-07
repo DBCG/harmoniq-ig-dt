@@ -9,7 +9,82 @@
     <publisher value="HarmonIQ Health Services"/>
     <date value="2018-02-03T13:16:43-07:00"/>
     <description value="Establishing HarmonIQ CDS Services"/>
-    <!--<package></package>-->
+    <package>
+        <name value="Diabetes Management"/>
+        <resource>
+            <example value="true"/>
+            <name value="Diabetes Management Condition"/>
+            <description value="Example of Diabetes Management Condition"/>
+            <sourceReference>
+                <reference value="Condition/example-diabetes-management"/>
+            </sourceReference>
+            <exampleFor>
+                <reference value="StructureDefinition/diabetes-management-condition"/>
+            </exampleFor>
+        </resource>
+        <resource>
+            <example value="true"/>
+            <name value="Diabetes Management Library"/>
+            <description value="Example of Diabetes Management Library"/>
+            <sourceReference>
+                <reference value="Library/example-diabetes-management"/>
+            </sourceReference>
+            <exampleFor>
+                <reference value="StructureDefinition/diabetes-management-library"/>
+            </exampleFor>
+        </resource>
+        <resource>
+            <example value="true"/>
+            <name value="Diabetes Management MedicationStatement"/>
+            <description value="Example of Diabetes Management MedicationStatement"/>
+            <sourceReference>
+                <reference value="MedicationStatement/example-diabetes-management"/>
+            </sourceReference>
+            <exampleFor>
+                <reference value="StructureDefinition/diabetes-management-medstatemnt"/>
+            </exampleFor>
+        </resource>
+        <resource>
+            <example value="true"/>
+            <name value="Diabetes Management Observation"/>
+            <description value="Example of Diabetes Management Observation"/>
+            <sourceReference>
+                <reference value="Observation/example-diabetes-management"/>
+            </sourceReference>
+            <exampleFor>
+                <reference value="StructureDefinition/diabetes-management-observation"/>
+            </exampleFor>
+        </resource>
+        <resource>
+            <example value="true"/>
+            <name value="Diabetes Management Patient"/>
+            <description value="Example of Diabetes Management Patient"/>
+            <sourceReference>
+                <reference value="Patient/example-diabetes-management"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="true"/>
+            <name value="Diabetes Management PlanDefinition"/>
+            <description value="Example of Diabetes Management PlanDefinition"/>
+            <sourceReference>
+                <reference value="PlanDefinition/example-diabetes-management"/>
+            </sourceReference>
+            <exampleFor>
+                <reference value="StructureDefinition/diabetes-management-plandef"/>
+            </exampleFor>
+        </resource>
+        <!--<resource>-->
+            <!--<example value="true"/>-->
+            <!--<name value="Diabetes Condition Codes"/>-->
+            <!--<description value="ValueSet containing the diabetes condition codes"/>-->
+            <!--<sourceReference>-->
+                <!--<reference value="ValueSet/diabetes-condition"/>-->
+            <!--</sourceReference>-->
+        <!--</resource>-->
+    </package>
+    <binary value="cql/diabetes-management.cql" />
+    <binary value="elm/diabetes-management.elm.xml" />
     <page>
         <source value="harmoniq.html"/>
         <title value="HarmonIQ Home"/>

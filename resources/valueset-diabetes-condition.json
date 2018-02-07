@@ -1,0 +1,41 @@
+{
+  "resourceType": "ValueSet",
+  "id": "diabetes-condition",
+  "url": "http://harmoniqhealth.com/cds/ValueSet/diabetes-condition",
+  "name": "Diabetes Management Condition Codes",
+  "status": "active",
+  "compose": {
+    "include": [
+      {
+        "system": "http://hl7.org/fhir/sid/icd-9-cm",
+        "concept": [
+          {
+            "code": "250.00"
+          },
+          {
+            "code": "E11.9"
+          }
+        ]
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "concept": [
+          {
+            "code": "313436004"
+          },
+          {
+            "code": "73211009"
+          }
+        ]
+      },
+      {
+        "system": "http://hl7.org/fhir/sid/icd-10-cm",
+        "concept": [
+          {
+            "code": "E11.9"
+          }
+        ]
+      }
+    ]
+  }
+}

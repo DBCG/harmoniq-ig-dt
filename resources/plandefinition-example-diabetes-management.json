@@ -1,0 +1,159 @@
+{
+  "resourceType": "PlanDefinition",
+  "id": "example-diabetes-management",
+  "status": "draft",
+  "library": {
+    "reference": "Library/example-diabetes-management"
+  },
+  "action": [
+    {
+      "condition": [
+        {
+          "kind": "applicability",
+          "language": "text/cql",
+          "expression": "Has Diabetes"
+        }
+      ],
+      "action": [
+        {
+          "condition": [
+            {
+              "kind": "applicability",
+              "language": "text/cql",
+              "expression": "Has Abnormal Creatinine"
+            }
+          ],
+          "dynamicValue": [
+            {
+              "path": "action.title",
+              "expression": "AbnormalCreatinineSummary"
+            },
+            {
+              "path": "action.description",
+              "expression": "AbnormalCreatinineDetail"
+            },
+            {
+              "path": "activity.extension",
+              "expression": "AbnormalCreatinineIndicator"
+            }
+          ]
+        },
+        {
+          "condition": [
+            {
+              "kind": "applicability",
+              "language": "text/cql",
+              "expression": "Has Abnormal HbA1C"
+            }
+          ],
+          "dynamicValue": [
+            {
+              "path": "action.title",
+              "expression": "AbnormalHbA1CSummary"
+            },
+            {
+              "path": "action.description",
+              "expression": "AbnormalHbA1CDetail"
+            },
+            {
+              "path": "activity.extension",
+              "expression": "AbnormalHbA1CIndicator"
+            }
+          ]
+        },
+        {
+          "condition": [
+            {
+              "kind": "applicability",
+              "language": "text/cql",
+              "expression": "Has Abnormal LDL"
+            }
+          ],
+          "dynamicValue": [
+            {
+              "path": "action.title",
+              "expression": "AbnormalLDLSummary"
+            },
+            {
+              "path": "action.description",
+              "expression": "AbnormalLDLDetail"
+            },
+            {
+              "path": "activity.extension",
+              "expression": "AbnormalLDLIndicator"
+            }
+          ]
+        },
+        {
+          "condition": [
+            {
+              "kind": "applicability",
+              "language": "text/cql",
+              "expression": "Has Abnormal MicroalbCr"
+            }
+          ],
+          "dynamicValue": [
+            {
+              "path": "action.title",
+              "expression": "AbnormalMicroalbCrSummary"
+            },
+            {
+              "path": "action.description",
+              "expression": "AbnormalMicroalbCrDetail"
+            },
+            {
+              "path": "activity.extension",
+              "expression": "AbnormalMicroalbCrIndicator"
+            }
+          ]
+        },
+        {
+          "condition": [
+            {
+              "kind": "applicability",
+              "language": "text/cql",
+              "expression": "Has Abnormal Foot Exam"
+            }
+          ],
+          "dynamicValue": [
+            {
+              "path": "action.title",
+              "expression": "AbnormalFootExamSummary"
+            },
+            {
+              "path": "action.description",
+              "expression": "AbnormalFootExamDetail"
+            },
+            {
+              "path": "activity.extension",
+              "expression": "AbnormalFootExamIndicator"
+            }
+          ]
+        },
+        {
+          "condition": [
+            {
+              "kind": "applicability",
+              "language": "text/cql",
+              "expression": "Has Abnormal Eye Exam"
+            }
+          ],
+          "dynamicValue": [
+            {
+              "path": "action.title",
+              "expression": "AbnormalEyeExamSummary"
+            },
+            {
+              "path": "action.description",
+              "expression": "AbnormalEyeExamDetail"
+            },
+            {
+              "path": "activity.extension",
+              "expression": "AbnormalEyeExamIndicator"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
