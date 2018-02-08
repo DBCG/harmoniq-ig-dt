@@ -72,6 +72,14 @@
       "source": "activitydefinition-example-creatinine.json",
       "base": "ActivityDefinition-example-creatinine.html"
     },
+    "Bundle/diabetes-management-artifacts": {
+      "source": "bundle-diabetes-management-artifacts.json",
+      "base": "Bundle-diabetes-management-artifacts.html"
+    },
+    "Bundle/diabetes-management-terminology": {
+      "source": "bundle-diabetes-management-terminology.json",
+      "base": "Bundle-diabetes-management-terminology.html"
+    },
     "Condition/example-diabetes-management": {
       "source": "condition-example-diabetes-management.json",
       "base": "Condition-example-diabetes-management.html"

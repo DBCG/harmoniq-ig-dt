@@ -24,6 +24,22 @@
         </resource>
         <resource>
             <example value="true"/>
+            <name value="Diabetes Management Artifact Bundle"/>
+            <description value="Test bundle of Diabetes Management artifacts"/>
+            <sourceReference>
+                <reference value="Bundle/diabetes-management-artifacts"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="true"/>
+            <name value="Diabetes Management Terminology Bundle"/>
+            <description value="Test bundle of Diabetes Management terminology"/>
+            <sourceReference>
+                <reference value="Bundle/diabetes-management-terminology"/>
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="true"/>
             <name value="Diabetes Management Condition"/>
             <description value="Example of Diabetes Management Condition"/>
             <sourceReference>

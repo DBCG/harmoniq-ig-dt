@@ -1,0 +1,381 @@
+{
+  "resourceType": "Bundle",
+  "id": "diabetes-management-artifacts",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Patient/example-diabetes-management",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "example-diabetes-management",
+        "identifier": [
+          {
+            "use": "official",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/identifier-type",
+                  "code": "SB",
+                  "display": "Social Beneficiary Identifier"
+                }
+              ],
+              "text": "US Social Security Number"
+            },
+            "system": "http://hl7.org/fhir/sid/us-ssn",
+            "value": "000000014"
+          },
+          {
+            "use": "official",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/identifier-type",
+                  "code": "SB",
+                  "display": "Social Beneficiary Identifier"
+                }
+              ],
+              "text": "Michigan Common Key Service Identifier"
+            },
+            "system": "http://mihin.org/fhir/cks",
+            "value": "d74e60bc008b463e8072d792aa15095e"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "family": "Woodard",
+            "given": [
+              "Andrea",
+              "Montgomery"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "248-555-6663",
+            "use": "home"
+          },
+          {
+            "system": "phone",
+            "value": "248-555-9907",
+            "use": "mobile"
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1960-08-07",
+        "address": [
+          {
+            "use": "home",
+            "type": "postal",
+            "line": [
+              "637 Jefferson Court"
+            ],
+            "city": "West Bloomfield",
+            "district": "Oakland County",
+            "state": "MI",
+            "postalCode": "48322"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Patient/example-diabetes-management"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Condition/example-diabetes-management",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "example-diabetes-management",
+        "clinicalStatus": "active",
+        "verificationStatus": "confirmed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "E11.9"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/example-diabetes-management"
+        },
+        "onsetDateTime": "2012-05-24"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Condition/example-diabetes-management"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/example-diabetes-management",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "example-diabetes-management",
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "https://intranet.aumc.nl/labtestcodes",
+              "code": "20006",
+              "display": "HbA1C"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/example-diabetes-management"
+        },
+        "effectiveDateTime": "2016-04-04T14:34:00+01:00",
+        "valueQuantity": {
+          "value": 15.2,
+          "unit": "mmol/L",
+          "system": "http://snomed.info/sct",
+          "code": "258814008"
+        },
+        "interpretation": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "R73.09",
+              "display": "Other abnormal glucose"
+            },
+            {
+              "system": "http://hl7.org/fhir/v2/0078",
+              "code": "H"
+            }
+          ]
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/example-diabetes-management"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/MedicationStatement/example-diabetes-management",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "example-diabetes-management",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "E11.9"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/example-diabetes-management"
+        },
+        "taken": "y"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/MedicationStatement/example-diabetes-management"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/ActivityDefinition/example-creatinine",
+      "resource": {
+        "resourceType": "ActivityDefinition",
+        "id": "example-creatinine",
+        "status": "draft",
+        "description": "Patient is due for a Creatinine Lab",
+        "kind": "ProcedureRequest",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ama-assn.org/go/cpt",
+              "code": "82570",
+              "display": "Assay of Urine Creatinine"
+            }
+          ]
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/ActivityDefinition/example-creatinine"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/PlanDefinition/example-diabetes-management",
+      "resource": {
+        "resourceType": "PlanDefinition",
+        "id": "example-diabetes-management",
+        "status": "draft",
+        "library": {
+          "reference": "Library/example-diabetes-management"
+        },
+        "action": [
+          {
+            "condition": [
+              {
+                "kind": "applicability",
+                "language": "text/cql",
+                "expression": "Has Diabetes"
+              }
+            ],
+            "action": [
+              {
+                "condition": [
+                  {
+                    "kind": "applicability",
+                    "language": "text/cql",
+                    "expression": "Has Abnormal Creatinine"
+                  }
+                ],
+                "dynamicValue": [
+                  {
+                    "path": "action.title",
+                    "expression": "AbnormalCreatinineSummary"
+                  },
+                  {
+                    "path": "action.description",
+                    "expression": "AbnormalCreatinineDetail"
+                  },
+                  {
+                    "path": "activity.extension",
+                    "expression": "AbnormalCreatinineIndicator"
+                  }
+                ]
+              },
+              {
+                "condition": [
+                  {
+                    "kind": "applicability",
+                    "language": "text/cql",
+                    "expression": "Has Abnormal HbA1C"
+                  }
+                ],
+                "dynamicValue": [
+                  {
+                    "path": "action.title",
+                    "expression": "AbnormalHbA1CSummary"
+                  },
+                  {
+                    "path": "action.description",
+                    "expression": "AbnormalHbA1CDetail"
+                  },
+                  {
+                    "path": "activity.extension",
+                    "expression": "AbnormalHbA1CIndicator"
+                  }
+                ]
+              },
+              {
+                "condition": [
+                  {
+                    "kind": "applicability",
+                    "language": "text/cql",
+                    "expression": "Has Abnormal LDL"
+                  }
+                ],
+                "dynamicValue": [
+                  {
+                    "path": "action.title",
+                    "expression": "AbnormalLDLSummary"
+                  },
+                  {
+                    "path": "action.description",
+                    "expression": "AbnormalLDLDetail"
+                  },
+                  {
+                    "path": "activity.extension",
+                    "expression": "AbnormalLDLIndicator"
+                  }
+                ]
+              },
+              {
+                "condition": [
+                  {
+                    "kind": "applicability",
+                    "language": "text/cql",
+                    "expression": "Has Abnormal MicroalbCr"
+                  }
+                ],
+                "dynamicValue": [
+                  {
+                    "path": "action.title",
+                    "expression": "AbnormalMicroalbCrSummary"
+                  },
+                  {
+                    "path": "action.description",
+                    "expression": "AbnormalMicroalbCrDetail"
+                  },
+                  {
+                    "path": "activity.extension",
+                    "expression": "AbnormalMicroalbCrIndicator"
+                  }
+                ]
+              },
+              {
+                "condition": [
+                  {
+                    "kind": "applicability",
+                    "language": "text/cql",
+                    "expression": "Has Abnormal Foot Exam"
+                  }
+                ],
+                "dynamicValue": [
+                  {
+                    "path": "action.title",
+                    "expression": "AbnormalFootExamSummary"
+                  },
+                  {
+                    "path": "action.description",
+                    "expression": "AbnormalFootExamDetail"
+                  },
+                  {
+                    "path": "activity.extension",
+                    "expression": "AbnormalFootExamIndicator"
+                  }
+                ]
+              },
+              {
+                "condition": [
+                  {
+                    "kind": "applicability",
+                    "language": "text/cql",
+                    "expression": "Has Abnormal Eye Exam"
+                  }
+                ],
+                "dynamicValue": [
+                  {
+                    "path": "action.title",
+                    "expression": "AbnormalEyeExamSummary"
+                  },
+                  {
+                    "path": "action.description",
+                    "expression": "AbnormalEyeExamDetail"
+                  },
+                  {
+                    "path": "activity.extension",
+                    "expression": "AbnormalEyeExamIndicator"
+                  }
+                ]
+              },
+              {
+                "condition": [
+                  {
+                    "kind": "applicability",
+                    "language": "text/cql",
+                    "expression": "Needs Creatinine Test"
+                  }
+                ],
+                "definition": {
+                  "reference": "ActivityDefinition/example-creatinine"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/PlanDefinition/example-diabetes-management"
+      }
+    }
+  ]
+}
