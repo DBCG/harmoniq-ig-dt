@@ -1,0 +1,16 @@
+{
+  "resourceType": "ActivityDefinition",
+  "id": "example-creatinine",
+  "status": "draft",
+  "description": "Patient is due for a Creatinine Lab",
+  "kind": "ProcedureRequest",
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.ama-assn.org/go/cpt",
+        "code": "82570",
+        "display": "Assay of Urine Creatinine"
+      }
+    ]
+  }
+}

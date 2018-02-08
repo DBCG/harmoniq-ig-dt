@@ -152,6 +152,18 @@
               "expression": "AbnormalEyeExamIndicator"
             }
           ]
+        },
+        {
+          "condition": [
+            {
+              "kind": "applicability",
+              "language": "text/cql",
+              "expression": "Needs Creatinine Test"
+            }
+          ],
+          "definition": {
+            "reference": "ActivityDefinition/example-creatinine"
+          }
         }
       ]
     }

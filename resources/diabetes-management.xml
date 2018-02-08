@@ -13,6 +13,17 @@
         <name value="Diabetes Management"/>
         <resource>
             <example value="true"/>
+            <name value="Diabetes Management ActivityDefinition for Creatinine"/>
+            <description value="Example of Diabetes Management ActivityDefinition to create a lab request for Creatinine"/>
+            <sourceReference>
+                <reference value="ActivityDefinition/example-creatinine"/>
+            </sourceReference>
+            <exampleFor>
+                <reference value="StructureDefinition/diabetes-management-activitydef"/>
+            </exampleFor>
+        </resource>
+        <resource>
+            <example value="true"/>
             <name value="Diabetes Management Condition"/>
             <description value="Example of Diabetes Management Condition"/>
             <sourceReference>
