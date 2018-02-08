@@ -84,9 +84,9 @@
       "source": "condition-example-diabetes-management.json",
       "base": "Condition-example-diabetes-management.html"
     },
-    "Library/example-diabetes-management": {
-      "source": "library-example-diabetes-management.json",
-      "base": "Library-example-diabetes-management.html"
+    "Library/diabetes-management": {
+      "source": "library-diabetes-management.json",
+      "base": "Library-diabetes-management.html"
     },
     "MedicationStatement/example-diabetes-management": {
       "source": "medicationstatement-example-diabetes-management.json",
@@ -100,9 +100,9 @@
       "source": "patient-example-diabetes-management.json",
       "base": "Patient-example-diabetes-management.html"
     },
-    "PlanDefinition/example-diabetes-management": {
-      "source": "plandefinition-example-diabetes-management.json",
-      "base": "PlanDefinition-example-diabetes-management.html"
+    "PlanDefinition/diabetes-management": {
+      "source": "plandefinition-diabetes-management.json",
+      "base": "PlanDefinition-diabetes-management.html"
     },
     "ValueSet/diabetes-condition": {
       "source": "valueset-diabetes-condition.json",

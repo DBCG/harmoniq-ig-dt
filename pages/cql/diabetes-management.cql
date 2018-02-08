@@ -2,25 +2,28 @@ library DiabetesManagement version '1.0'
 
 using FHIR version '3.0.0'
 
-valueset "Diabetes": 'diabetes-condition'
-valueset "Abnormal Interpretation Codes": '1.2.3.4.6'
-valueset "Creatinine Labs": '1.2.3.4.7'
-valueset "HbA1C Labs": '1.2.3.4.8'
-valueset "LDL Labs": '1.2.3.4.9'
-valueset "MicroalbCr Labs": '1.2.3.5.0'
-valueset "ACE or ARB Medication": '1.2.3.5.1'
-valueset "Foot Exam Labs": '1.2.3.5.2'
-valueset "Eye Exam Labs": '1.2.3.5.3'
+valueset "Abnormal Interpretation Codes": 'observation-interpretation'
+
+parameter "Diabetes Conditions" List<Condition>
+parameter "Creatinine Labs" List<Observation>
+parameter "HbA1C Labs" List<Observation>
+parameter "LDL Labs" List<Observation>
+parameter "MicroalbCr Labs" List<Observation>
+parameter "Foot Exams" List<Observation>
+parameter "Eye Exams" List<Observation>
+parameter "ACE or ARB Medications" List<MedicationStatement>
+
+context Patient
 
 define "Has Diabetes":
   exists(
-      [Condition: code in "Diabetes"] DiabetesCondition
+      "Diabetes Conditions" DiabetesCondition
         where DiabetesCondition.clinicalStatus.value = 'active'
           and DiabetesCondition.abatement.value is null
   )
 
 define "Get Last Creatinine Lab Result":
-  Last( [Observation: code in "Creatinine Labs"] )
+  Last( "Creatinine Labs" cLabs sort by effective.value )
 
 define "Has Abnormal Creatinine":
   "Get Last Creatinine Lab Result" Result
@@ -67,7 +70,7 @@ define AbnormalCreatinineIndicator:
   'warning'
 
 define "Get Last HbA1C Lab Result":
-  Last( [Observation: code in "HbA1C Labs"] )
+  Last( "HbA1C Labs" hLabs sort by effective.value )
 
 define "Has Abnormal HbA1C":
   "Get Last HbA1C Lab Result" Result
@@ -114,7 +117,7 @@ define AbnormalHbA1CIndicator:
   'warning'
 
 define "Get Last LDL Lab Result":
-  Last( [Observation: code in "LDL Labs"] )
+  Last( "LDL Labs" lLabs sort by effective.value )
 
 define "Has Abnormal LDL":
   "Get Last LDL Lab Result" Result
@@ -161,12 +164,13 @@ define AbnormalLDLIndicator:
   'warning'
 
 define "Get Last MicroalbCr Lab Result":
-  Last( [Observation: code in "MicroalbCr Labs"] )
+  Last( "MicroalbCr Labs" mLabs sort by effective.value )
 
 define "On ACE or ARB Medication":
   exists(
-    [MedicationStatement: "ACE or ARB Medication"] Meds
+    "ACE or ARB Medications" Meds
       where Meds.status.value = 'active'
+      and Meds.taken.value = 'y'
   )
 
 define "Has Abnormal MicroalbCr":
@@ -219,7 +223,7 @@ define AbnormalMicroalbCrIndicator:
   'warning'
 
 define "Get Last Foot Exam Result":
-  Last( [Observation: code in "Foot Exam Labs"] )
+  Last( "Foot Exams" fExams sort by effective.value )
 
 define "Has Abnormal Foot Exam":
   "Get Last Foot Exam Result" Result
@@ -270,7 +274,7 @@ define AbnormalFootExamIndicator:
   'warning'
 
 define "Get Last Eye Exam Result":
-  Last( [Observation: code in "Eye Exam Labs"] )
+  Last( "Eye Exams" eExams sort by effective.value )
 
 define "Has Abnormal Eye Exam":
   "Get Last Eye Exam Result" Result

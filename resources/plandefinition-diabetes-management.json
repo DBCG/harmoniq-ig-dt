@@ -1,9 +1,9 @@
 {
   "resourceType": "PlanDefinition",
-  "id": "example-diabetes-management",
+  "id": "diabetes-management",
   "status": "draft",
   "library": {
-    "reference": "Library/example-diabetes-management"
+    "reference": "Library/diabetes-management"
   },
   "action": [
     {
