@@ -162,7 +162,7 @@
             }
           ],
           "definition": {
-            "reference": "ActivityDefinition/example-creatinine"
+            "reference": "ActivityDefinition/create-creatinine-lab"
           }
         }
       ]

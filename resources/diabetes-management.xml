@@ -16,7 +16,7 @@
             <name value="Diabetes Management ActivityDefinition for Creatinine"/>
             <description value="Example of Diabetes Management ActivityDefinition to create a lab request for Creatinine"/>
             <sourceReference>
-                <reference value="ActivityDefinition/example-creatinine"/>
+                <reference value="ActivityDefinition/create-creatinine-lab"/>
             </sourceReference>
             <exampleFor>
                 <reference value="StructureDefinition/diabetes-management-activitydef"/>

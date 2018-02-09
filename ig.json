@@ -75,9 +75,9 @@
       "defns": "diabetes-management-plandef-definitions.html",
       "base": "diabetes-management-plandef.html"
     },
-    "ActivityDefinition/example-creatinine": {
-      "source": "activitydefinition-example-creatinine.json",
-      "base": "ActivityDefinition-example-creatinine.html"
+    "ActivityDefinition/create-creatinine-lab": {
+      "source": "activitydefinition-create-creatinine-lab.json",
+      "base": "ActivityDefinition-create-creatinine-lab.html"
     },
     "Bundle/diabetes-management-artifacts": {
       "source": "bundle-diabetes-management-artifacts.json",

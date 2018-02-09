@@ -16,21 +16,6 @@
       },
       "system": "http://hl7.org/fhir/sid/us-ssn",
       "value": "000000014"
-    },
-    {
-      "use": "official",
-      "type": {
-        "coding": [
-          {
-            "system": "http://hl7.org/fhir/identifier-type",
-            "code": "SB",
-            "display": "Social Beneficiary Identifier"
-          }
-        ],
-        "text": "Michigan Common Key Service Identifier"
-      },
-      "system": "http://mihin.org/fhir/cks",
-      "value": "d74e60bc008b463e8072d792aa15095e"
     }
   ],
   "active": true,

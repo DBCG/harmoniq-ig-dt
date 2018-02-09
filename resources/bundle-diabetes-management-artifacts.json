@@ -23,21 +23,6 @@
             },
             "system": "http://hl7.org/fhir/sid/us-ssn",
             "value": "000000014"
-          },
-          {
-            "use": "official",
-            "type": {
-              "coding": [
-                {
-                  "system": "http://hl7.org/fhir/identifier-type",
-                  "code": "SB",
-                  "display": "Social Beneficiary Identifier"
-                }
-              ],
-              "text": "Michigan Common Key Service Identifier"
-            },
-            "system": "http://mihin.org/fhir/cks",
-            "value": "d74e60bc008b463e8072d792aa15095e"
           }
         ],
         "active": true,
@@ -241,10 +226,10 @@
       }
     },
     {
-      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/ActivityDefinition/example-creatinine",
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/ActivityDefinition/create-creatinine-lab",
       "resource": {
         "resourceType": "ActivityDefinition",
-        "id": "example-creatinine",
+        "id": "create-creatinine-lab",
         "status": "draft",
         "description": "Patient is due for a Creatinine Lab",
         "kind": "ProcedureRequest",
@@ -260,7 +245,7 @@
       },
       "request": {
         "method": "PUT",
-        "url": "http://localhost:8080/cqf-ruler/baseDstu3/ActivityDefinition/example-creatinine"
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/ActivityDefinition/create-creatinine-lab"
       }
     },
     {
@@ -429,7 +414,7 @@
                   }
                 ],
                 "definition": {
-                  "reference": "ActivityDefinition/example-creatinine"
+                  "reference": "ActivityDefinition/create-creatinine-lab"
                 }
               }
             ]

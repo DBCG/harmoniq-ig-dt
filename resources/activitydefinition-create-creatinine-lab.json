@@ -1,6 +1,6 @@
 {
   "resourceType": "ActivityDefinition",
-  "id": "example-creatinine",
+  "id": "create-creatinine-lab",
   "status": "draft",
   "description": "Patient is due for a Creatinine Lab",
   "kind": "ProcedureRequest",
