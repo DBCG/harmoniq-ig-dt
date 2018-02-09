@@ -73,10 +73,21 @@
         </resource>
         <resource>
             <example value="true"/>
-            <name value="Diabetes Management Observation"/>
-            <description value="Example of Diabetes Management Observation"/>
+            <name value="Abnormal HbA1c Observation"/>
+            <description value="Example of an abnormal HbA1c Observation"/>
             <sourceReference>
-                <reference value="Observation/example-diabetes-management"/>
+                <reference value="Observation/abnormal-hbA1c"/>
+            </sourceReference>
+            <exampleFor>
+                <reference value="StructureDefinition/diabetes-management-observation"/>
+            </exampleFor>
+        </resource>
+        <resource>
+            <example value="true"/>
+            <name value="Abnormal Creatinine Observation"/>
+            <description value="Example of an abnormal creatinine Observation"/>
+            <sourceReference>
+                <reference value="Observation/abnormal-creatinine"/>
             </sourceReference>
             <exampleFor>
                 <reference value="StructureDefinition/diabetes-management-observation"/>

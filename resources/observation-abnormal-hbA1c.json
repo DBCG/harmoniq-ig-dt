@@ -1,6 +1,6 @@
 {
   "resourceType": "Observation",
-  "id": "example-diabetes-management",
+  "id": "abnormal-hbA1c",
   "status": "final",
   "code": {
     "coding": [

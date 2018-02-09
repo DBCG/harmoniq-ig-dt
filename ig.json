@@ -92,9 +92,13 @@
       "source": "medicationstatement-example-diabetes-management.json",
       "base": "MedicationStatement-example-diabetes-management.html"
     },
-    "Observation/example-diabetes-management": {
-      "source": "observation-example-diabetes-management.json",
-      "base": "Observation-example-diabetes-management.html"
+    "Observation/abnormal-hbA1c": {
+      "source": "observation-abnormal-hbA1c.json",
+      "base": "Observation-abnormal-hbA1c.html"
+    },
+    "Observation/abnormal-creatinine": {
+      "source": "observation-abnormal-creatinine.json",
+      "base": "Observation-abnormal-creatinine.html"
     },
     "Patient/example-diabetes-management": {
       "source": "patient-example-diabetes-management.json",

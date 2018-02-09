@@ -109,10 +109,10 @@
       }
     },
     {
-      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/example-diabetes-management",
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/abnormal-hbA1c",
       "resource": {
         "resourceType": "Observation",
-        "id": "example-diabetes-management",
+        "id": "abnormal-hbA1c",
         "status": "final",
         "code": {
           "coding": [
@@ -149,7 +149,71 @@
       },
       "request": {
         "method": "PUT",
-        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/example-diabetes-management"
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/abnormal-hbA1c"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/abnormal-creatinine",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "abnormal-creatinine",
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "https://intranet.aumc.nl/labtestcodes",
+              "code": "20005",
+              "display": "Creatinine(Serum)"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/example-diabetes-management"
+        },
+        "effectiveDateTime": "2016-04-04T14:34:00+01:00",
+        "issued": "2013-04-04T14:34:00+01:00",
+        "valueQuantity": {
+          "value": 122,
+          "unit": "umol/L",
+          "system": "http://snomed.info/sct",
+          "code": "258814008"
+        },
+        "interpretation": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "166717003",
+              "display": "Serum creatinine raised"
+            },
+            {
+              "system": "http://hl7.org/fhir/v2/0078",
+              "code": "H"
+            }
+          ]
+        },
+        "referenceRange": [
+          {
+            "low": {
+              "value": 64
+            },
+            "high": {
+              "value": 104
+            },
+            "type": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/referencerange-meaning",
+                  "code": "normal",
+                  "display": "Normal Range"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/abnormal-creatinine"
       }
     },
     {
