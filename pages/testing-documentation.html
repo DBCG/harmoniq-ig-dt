@@ -1,0 +1,207 @@
+---
+# jekyll header
+---
+
+{% include header.html %}
+
+<!-- ============BreadCrumb=============== -->
+
+{% include container-start.html %}
+
+<!-- ============CONTENT CONTENT=============== -->
+
+<a name="testing-documentation"> </a>
+<h2><span class="sectioncount">5.2.0</span> HarmonIQ Diabetes Management Implementation Guide - Testing Documentation <a href="testing-documentation.html#testing-documentation" title="link to here" class="self-link"><img src="target.png" width="20" class="self-link" height="20"/></a></h2>
+<p>
+    This section of the Implementation Guide details the steps necessary to execute the <a href="test-data.html">test data</a>.
+</p>
+<h3>Environment</h3>
+<p>
+    It is assumed that the <a href="https://github.com/DBCG/cqf-ruler">CQF Ruler</a> will be used to execute the test data provided in this guide.
+    Follow the instructions in the CQF Ruler's README to build the project and start the server. If the CQF Ruler does not suit your needs, or is
+    in some other way inadequate, please refer to the <a href="implementation-documentation.html">Implementation Documentation</a> for information
+    on how to setup a system suitable to execute the diabetes-management logic.
+</p>
+
+<h3>Loading the Test Data</h3>
+<p>
+    Once you have a local instance of the CQF Ruler running - you may also use the <a href="http://measure.eval.kanvix.com/cqf-ruler/tester/">public server</a>
+    - you will need to load the test bundles. There are 2 ways to accomplish this:
+</p>
+<ol>
+    <li>
+        <p>
+            Navigate the the CQF Ruler's UI page. If your local instance is running on port 8080, the URL would be http://localhost:8080/cqf-ruler/tester/.
+            You should see a page like the following:
+        </p>
+        <img src="assets/images/ui-screenshot.png" alt="UI Home" height="600" width="900" vspace="10">
+        <p>
+            Next, copy-and-paste each test bundle (one at a time) into the Transaction Bundle field in the "Server Actions" window on the home page and select
+            the "Transaction" button.
+        </p>
+        <img src="assets/images/ui-transaction.png" alt="UI Transaction" height="600" width="900" vspace="10">
+    </li>
+    <li>
+        <p>
+            POST each bundle (one at a time) to the base URL of the server using an HTTP client. If your local instance is running on port 8080,
+            the base URL would be http://localhost:8080/cqf-ruler/baseDstu3. The following screen shot is an example transaction using
+            <a href="https://www.getpostman.com">Postman</a>, a powerful HTTP client.
+        </p>
+        <img src="assets/images/http-client-transaction.png" alt="HTTP Client Transaction" height="600" width="900" vspace="10">
+    </li>
+</ol>
+
+<h3>Calling the diabetes-management CDS Service</h3>
+<p>
+    Now that the environment is setup and the test data is loaded into the server, we are now ready to invoke the diabetes-management hook.
+    The CQF Ruler employs the <a href="https://cds-hooks.org">CDS Hooks</a> specification to invoke decision support. CDS Hooks dictates that
+    a stable endpoint must be provided by the CDS service to inform users of available services and the required data required to invoke it.
+    The following is an example of how the CQF Ruler's CDS services can be "discovered" at the following endpoint, assuming your local instance
+    is running on port 8080:
+</p>
+
+<div class="example">
+    <p>GET http://localhost:8080/cqf-ruler/cds-services</p>
+    <pre class="json">
+{
+  "services": [
+    {
+      "hook": "medication-prescribe",
+      "prefetch": {
+        "medication": "MedicationOrder?patient=&#123;&#123;Patient.id&#125;&#125;&amp;status=active"
+      },
+      "name": "Opioid Morphine Milligram Equivalence (MME) Guidance Service",
+      "description": "CDS Service that finds the MME of an opioid medication and provides guidance to the prescriber if the MME exceeds the recommended range.",
+      "id": "cdc-opioid-guidance"
+    },
+    {
+      "hook": "patient-view",
+      "prefetch": {
+        "patient": "Patient/&#123;&#123;Patient.id&#125;&#125;"
+      },
+      "name": "Zika Virus Intervention",
+      "description": "Identifies possible Zika exposure and offers suggestions for suggested actions for pregnant patients",
+      "id": "zika-virus-intervention"
+    },
+    {
+      "hook": "patient-view",
+      "prefetch": {
+        "Eye Exams": "Observation?patient=&#123;&#123;Patient.id&#125;&#125;&amp;code=20010",
+        "Diabetes Conditions": "Condition?patient=&#123;&#123;Patient.id&#125;&#125;&amp;code=250.00,E11.9,313436004,73211009",
+        "patient": "Patient/&#123;&#123;Patient.id&#125;&#125;",
+        "ACE or ARB Medications": "MedicationStatement?patient=&#123;&#123;Patient.id&#125;&#125;&amp;code=999996",
+        "Creatinine Labs": "Observation?patient=&#123;&#123;Patient.id&#125;&#125;&amp;code=20005",
+        "Foot Exams": "Observation?patient=&#123;&#123;Patient.id&#125;&#125;&amp;code=20009",
+        "LDL Labs": "Observation?patient=&#123;&#123;Patient.id&#125;&#125;&amp;code=20007",
+        "MicroalbCr Labs": "Observation?patient=&#123;&#123;Patient.id&#125;&#125;&amp;code=20008",
+        "HbA1C Labs": "Observation?patient=&#123;&#123;Patient.id&#125;&#125;&amp;code=20006"
+      },
+      "name": "Diabetes Management",
+      "description": "Identifies abnormal lab results and makes suggestions for service requests for diabetic patients",
+      "id": "diabetes-management"
+    }
+  ]
+}
+    </pre>
+</div>
+
+<p>
+    We want to call the diabetes-management service. The data requirements of the library or libraries associated with the
+    diabetes-management hook are included in the prefetch structure. The calling system may optionally populate the prefetch
+    using the provided query string to search for the corresponding resources within their data provider. The id specifies the
+    path to access the service with a CDS Request, as the following example illustrates:
+</p>
+<div class="example">
+    <p>POST http://localhost:8080/cqf-ruler/cds-services/diabetes-management</p>
+    <pre class="json">
+{
+  "hookInstance": "d1577c69-dfbe-44ad-ba6d-3e05e953b2ea",
+  "fhirServer": "http://localhost:8080/cqf-ruler/baseDstu3",
+  "hook": "patient-view",
+  "user": "Practitioner/example",
+  "context": [],
+  "patient": "Patient/example-diabetes-management",
+  "prefetch": {}
+}
+    </pre>
+</div>
+
+<p>
+    In this example, the prefetch is not populated. Therefore, the CQF Ruler will retrieve the data requirements from the data
+    provider specified in the request (fhirServer). Then the CQF Ruler will apply the PlanDefinition associated with the
+    diabetes-management hook for the specified patient and return information cards and/or suggestions to aid the user in making
+    informed decisions. The following example shows a CDS response from the diabetes-management service:
+</p>
+<div class="example">
+    <p>POST http://localhost:8080/cqf-ruler/cds-services/diabetes-management</p>
+    <p>Content-Type: application/json</p>
+    <pre class="json">
+{
+  "cards": [
+    {
+      "summary": "Abnormal Creatinine level detected in most recent lab results",
+      "indicator": "warning",
+      "detail": "The Creatinine level of 122umol/L in the most recent lab is considered abnormal",
+      "suggestions": [
+        {
+          "actions": [
+            {
+              "description": "The Creatinine level of 122umol/L in the most recent lab is considered abnormal"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "summary": "Abnormal HbA1C level detected in most recent lab results",
+      "indicator": "warning",
+      "detail": "The HbA1C level of 15.2mmol/L in the most recent lab is considered abnormal",
+      "suggestions": [
+        {
+          "actions": [
+            {
+              "description": "The HbA1C level of 15.2mmol/L in the most recent lab is considered abnormal"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "detail": "Patient is due for a Creatinine Lab",
+      "suggestions": [
+        {
+          "actions": [
+            {
+              "description": "Patient is due for a Creatinine Lab",
+              "resource": {
+                "resourceType": "ProcedureRequest",
+                "id": "042ee077-57be-4912-85f5-d893d4940bda",
+                "status": "draft",
+                "intent": "order",
+                "code": {
+                  "coding": [
+                    {
+                      "system": "http://www.ama-assn.org/go/cpt",
+                      "code": "82570",
+                      "display": "Assay of Urine Creatinine"
+                    }
+                  ]
+                },
+                "subject": {
+                  "reference": "Patient/example-diabetes-management"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+    </pre>
+</div>
+<!-- ==============END CONTENT END CONTENT=================== -->
+
+{% include container-end.html %}
+
+{% include footer.html %}
