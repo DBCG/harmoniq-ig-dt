@@ -95,6 +95,17 @@
         </resource>
         <resource>
             <example value="true"/>
+            <name value="Abnormal LDL Observation"/>
+            <description value="Example of an abnormal LDL Observation"/>
+            <sourceReference>
+                <reference value="Observation/abnormal-ldl"/>
+            </sourceReference>
+            <exampleFor>
+                <reference value="StructureDefinition/diabetes-management-observation"/>
+            </exampleFor>
+        </resource>
+        <resource>
+            <example value="true"/>
             <name value="Diabetes Management Patient"/>
             <description value="Example of Diabetes Management Patient"/>
             <sourceReference>

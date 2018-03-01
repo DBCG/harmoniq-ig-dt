@@ -105,7 +105,11 @@
     },
     "Observation/abnormal-creatinine": {
       "source": "observation-abnormal-creatinine.json",
-      "base": "Observation-abnormal-creatininec.html"
+      "base": "Observation-abnormal-creatinine.html"
+    },
+    "Observation/abnormal-ldl": {
+      "source": "observation-abnormal-ldl.json",
+      "base": "Observation-abnormal-ldl.html"
     },
     "Patient/example-diabetes-management": {
       "source": "patient-example-diabetes-management.json",

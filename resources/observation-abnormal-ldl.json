@@ -1,13 +1,13 @@
 {
   "resourceType": "Observation",
-  "id": "abnormal-hbA1c",
+  "id": "abnormal-ldl",
   "status": "final",
   "code": {
     "coding": [
       {
         "system": "http://loinc.org",
-        "code": "59261-8",
-        "display": "Hemoglobin A1c/Hemoglobin.total in Blood by IFCC protocol"
+        "code": "13457-7",
+        "display": "Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation"
       }
     ]
   },
@@ -16,17 +16,17 @@
   },
   "effectiveDateTime": "2016-04-04T14:34:00+01:00",
   "valueQuantity": {
-    "value": 15.2,
-    "unit": "mmol/L",
+    "value": 189,
+    "unit": "mg/dL",
     "system": "http://snomed.info/sct",
-    "code": "258814008"
+    "code": "258797006"
   },
   "interpretation": {
     "coding": [
       {
         "system": "http://hl7.org/fhir/sid/icd-10-cm",
-        "code": "R73.09",
-        "display": "Other abnormal glucose"
+        "code": "E78.0",
+        "display": "Pure hypercholesterolemia"
       },
       {
         "system": "http://hl7.org/fhir/v2/0078",

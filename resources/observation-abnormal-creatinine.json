@@ -6,8 +6,8 @@
     "coding": [
       {
         "system": "https://intranet.aumc.nl/labtestcodes",
-        "code": "20005",
-        "display": "Creatinine(Serum)"
+        "code": "2160-0",
+        "display": "Creatinine [Mass/volume] in Serum or Plasma"
       }
     ]
   },

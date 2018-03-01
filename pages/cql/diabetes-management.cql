@@ -4,26 +4,26 @@ using FHIR version '3.0.0'
 
 valueset "Abnormal Interpretation Codes": 'observation-interpretation'
 
-parameter "Diabetes Conditions" List<Condition>
-parameter "Creatinine Labs" List<Observation>
-parameter "HbA1C Labs" List<Observation>
-parameter "LDL Labs" List<Observation>
-parameter "MicroalbCr Labs" List<Observation>
-parameter "Foot Exams" List<Observation>
-parameter "Eye Exams" List<Observation>
-parameter "ACE or ARB Medications" List<MedicationStatement>
+parameter DiabetesConditions List<Condition>
+parameter CreatinineLabs List<Observation>
+parameter HbA1CLabs List<Observation>
+parameter LDLLabs List<Observation>
+parameter MicroalbCrLabs List<Observation>
+parameter FootExams List<Observation>
+parameter EyeExams List<Observation>
+parameter ACEorARBMedications List<MedicationStatement>
 
 context Patient
 
 define "Has Diabetes":
   exists(
-      "Diabetes Conditions" DiabetesCondition
+      DiabetesConditions DiabetesCondition
         where DiabetesCondition.clinicalStatus.value = 'active'
           and DiabetesCondition.abatement.value is null
   )
 
 define "Get Last Creatinine Lab Result":
-  Last( "Creatinine Labs" cLabs sort by effective.value )
+  Last( CreatinineLabs cLabs sort by effective.value )
 
 define "Has Abnormal Creatinine":
   "Get Last Creatinine Lab Result" Result
@@ -70,7 +70,7 @@ define AbnormalCreatinineIndicator:
   'warning'
 
 define "Get Last HbA1C Lab Result":
-  Last( "HbA1C Labs" hLabs sort by effective.value )
+  Last( HbA1CLabs hLabs sort by effective.value )
 
 define "Has Abnormal HbA1C":
   "Get Last HbA1C Lab Result" Result
@@ -117,7 +117,7 @@ define AbnormalHbA1CIndicator:
   'warning'
 
 define "Get Last LDL Lab Result":
-  Last( "LDL Labs" lLabs sort by effective.value )
+  Last( LDLLabs lLabs sort by effective.value )
 
 define "Has Abnormal LDL":
   "Get Last LDL Lab Result" Result
@@ -164,11 +164,11 @@ define AbnormalLDLIndicator:
   'warning'
 
 define "Get Last MicroalbCr Lab Result":
-  Last( "MicroalbCr Labs" mLabs sort by effective.value )
+  Last( MicroalbCrLabs mLabs sort by effective.value )
 
 define "On ACE or ARB Medication":
   exists(
-    "ACE or ARB Medications" Meds
+    ACEorARBMedications Meds
       where Meds.status.value = 'active'
       and Meds.taken.value = 'y'
   )
@@ -223,7 +223,7 @@ define AbnormalMicroalbCrIndicator:
   'warning'
 
 define "Get Last Foot Exam Result":
-  Last( "Foot Exams" fExams sort by effective.value )
+  Last( FootExams fExams sort by effective.value )
 
 define "Has Abnormal Foot Exam":
   "Get Last Foot Exam Result" Result
@@ -274,7 +274,7 @@ define AbnormalFootExamIndicator:
   'warning'
 
 define "Get Last Eye Exam Result":
-  Last( "Eye Exams" eExams sort by effective.value )
+  Last( EyeExams eExams sort by effective.value )
 
 define "Has Abnormal Eye Exam":
   "Get Last Eye Exam Result" Result
