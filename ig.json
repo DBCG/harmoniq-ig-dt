@@ -1,4 +1,7 @@
 {
+  "npm-name": "harmoniq.fhir.cds.diabetes",
+  "fixed-business-version" : "3.1.0",
+  "license": "CC0-1.0",
   "tool": "jekyll",
   "paths": {
     "resources": [
@@ -18,13 +21,7 @@
     "html",
     "tx"
   ],
-  "dependencyList": [
-    {
-      "name": "qicore",
-      "location": "http://hl7.org/fhir/us/qicore",
-      "source": "lib/qicore"
-    }
-  ],
+  
   "defaults": {
     "Any": {
       "template-format": "instance-template-format.html",
@@ -41,6 +38,13 @@
     "mappings"
   ],
   "canonicalBase": "http://harmoniqhealth.com/cds",
+  "dependencyList": [
+    {
+      "name": "qicore",
+      "location": "http://hl7.org/fhir/us/qicore",
+      "version": "current"
+    }
+  ],
   "source": "diabetes-management.xml",
   "spreadsheets": [
     "activitydefinition-profile-spreadsheet.xml",
