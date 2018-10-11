@@ -2,9 +2,11 @@
   "resourceType": "PlanDefinition",
   "id": "diabetes-management",
   "status": "draft",
-  "library": {
-    "reference": "Library/diabetes-management"
-  },
+  "library": [
+    {
+      "reference": "Library/diabetes-management"
+    }
+  ],
   "action": [
     {
       "condition": [
