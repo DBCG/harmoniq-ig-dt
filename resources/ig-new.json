@@ -1,0 +1,149 @@
+{
+  "resourceType" : "ImplementationGuide",
+  "id" : "DiabetesManagement",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/igpublisher-folder-resource",
+    "valueString" : "D:\\Users\\duc.tran\\projects\\harmoniq-ig\\resources"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/igpublisher-folder-pages",
+    "valueString" : "D:\\Users\\duc.tran\\projects\\harmoniq-ig\\pages"
+  }],
+  "url" : "http://harmoniqhealth.com/cds/ImplementationGuide/DiabetesManagement",
+  "version" : "3.1.0",
+  "name" : "HarmonIQ Implementation Guide - Diabetes Management",
+  "status" : "draft",
+  "experimental" : false,
+  "date" : "2018-02-03T14:16:43-06:00",
+  "publisher" : "HarmonIQ Health Services",
+  "description" : "Establishing HarmonIQ CDS Services",
+  "packageId" : "hl7.fhir.us.qicore",
+  "license" : "CC0-1.0",
+  "fhirVersion" : "3.0.1",
+  "definition" : {
+    "package" : [{
+      "id" : "p1",
+      "name" : "Diabetes Management"
+    }],
+    "resource" : [{
+      "reference" : {
+        "reference" : "ActivityDefinition/create-creatinine-lab"
+      },
+      "name" : "Diabetes Management ActivityDefinition for Creatinine",
+      "description" : "Example of Diabetes Management ActivityDefinition to create a lab request for Creatinine",
+      "exampleCanonical" : "StructureDefinition/diabetes-management-activitydef",
+      "package" : "p1"
+    },
+    {
+      "reference" : {
+        "reference" : "Bundle/diabetes-management-artifacts"
+      },
+      "name" : "Diabetes Management Artifact Bundle",
+      "description" : "Test bundle of Diabetes Management artifacts",
+      "exampleBoolean" : true,
+      "package" : "p1"
+    },
+    {
+      "reference" : {
+        "reference" : "Bundle/diabetes-management-terminology"
+      },
+      "name" : "Diabetes Management Terminology Bundle",
+      "description" : "Test bundle of Diabetes Management terminology",
+      "exampleBoolean" : true,
+      "package" : "p1"
+    },
+    {
+      "reference" : {
+        "reference" : "Condition/example-diabetes-management"
+      },
+      "name" : "Diabetes Management Condition",
+      "description" : "Example of Diabetes Management Condition",
+      "exampleCanonical" : "StructureDefinition/diabetes-management-condition",
+      "package" : "p1"
+    },
+    {
+      "reference" : {
+        "reference" : "Library/diabetes-management"
+      },
+      "name" : "Diabetes Management Library",
+      "description" : "Example of Diabetes Management Library",
+      "exampleCanonical" : "StructureDefinition/diabetes-management-library",
+      "package" : "p1"
+    },
+    {
+      "reference" : {
+        "reference" : "MedicationStatement/example-diabetes-management"
+      },
+      "name" : "Diabetes Management MedicationStatement",
+      "description" : "Example of Diabetes Management MedicationStatement",
+      "exampleCanonical" : "StructureDefinition/diabetes-management-medstatemnt",
+      "package" : "p1"
+    },
+    {
+      "reference" : {
+        "reference" : "Observation/abnormal-hbA1c"
+      },
+      "name" : "Abnormal HbA1c Observation",
+      "description" : "Example of an abnormal HbA1c Observation",
+      "exampleCanonical" : "StructureDefinition/diabetes-management-observation",
+      "package" : "p1"
+    },
+    {
+      "reference" : {
+        "reference" : "Observation/abnormal-creatinine"
+      },
+      "name" : "Abnormal Creatinine Observation",
+      "description" : "Example of an abnormal creatinine Observation",
+      "exampleCanonical" : "StructureDefinition/diabetes-management-observation",
+      "package" : "p1"
+    },
+    {
+      "reference" : {
+        "reference" : "Observation/abnormal-ldl"
+      },
+      "name" : "Abnormal LDL Observation",
+      "description" : "Example of an abnormal LDL Observation",
+      "exampleCanonical" : "StructureDefinition/diabetes-management-observation",
+      "package" : "p1"
+    },
+    {
+      "reference" : {
+        "reference" : "Patient/example-diabetes-management"
+      },
+      "name" : "Diabetes Management Patient",
+      "description" : "Example of Diabetes Management Patient",
+      "exampleBoolean" : true,
+      "package" : "p1"
+    },
+    {
+      "reference" : {
+        "reference" : "PlanDefinition/diabetes-management"
+      },
+      "name" : "Diabetes Management PlanDefinition",
+      "description" : "Example of Diabetes Management PlanDefinition",
+      "exampleCanonical" : "StructureDefinition/diabetes-management-plandef",
+      "package" : "p1"
+    }],
+    "page" : {
+      "nameUrl" : "harmoniq.html",
+      "title" : "HarmonIQ Home",
+      "generation" : "html"
+    },
+    "parameter" : [{
+      "code" : "apply-business-version",
+      "value" : "3.1.0"
+    },
+    {
+      "code" : "generate-json",
+      "value" : "true"
+    },
+    {
+      "code" : "generate-xml",
+      "value" : "true"
+    },
+    {
+      "code" : "generate-turtle",
+      "value" : "true"
+    }]
+  }
+}

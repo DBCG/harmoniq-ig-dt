@@ -1,4 +1,11 @@
 {
+  "canonicalBase": "http://hl7.org/fhir/us/qicore",
+  "version": "3.0.1",
+  "sct-edition": "http://snomed.info/sct/731000124108",
+  "source": "qicore.xml",
+  "npm-name": "hl7.fhir.us.qicore",
+  "fixed-business-version" : "3.1.0",
+  "license": "CC0-1.0",
   "tool": "jekyll",
   "paths": {
     "resources": [
@@ -18,13 +25,7 @@
     "html",
     "tx"
   ],
-  "dependencyList": [
-    {
-      "name": "qicore",
-      "location": "http://hl7.org/fhir/us/qicore",
-      "source": "lib/qicore"
-    }
-  ],
+  
   "defaults": {
     "Any": {
       "template-format": "instance-template-format.html",
